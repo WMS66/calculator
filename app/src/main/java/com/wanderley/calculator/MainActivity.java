@@ -45,7 +45,23 @@ public class MainActivity extends AppCompatActivity {
         txtExpresao = findViewById(R.id.txt_expressao);
         txtResultado = findViewById(R.id.txt_resultado);
         backspace = findViewById(R.id.backspace);
-
     }
 
+    // Cria Método Acrescentar uma Expressão
+    public void AcrescentarUmaExpressao(String string, boolean limpar_dados){
+
+        if (txtResultado.getText().equals("")){
+            txtExpresao.setText("");
+        }
+
+        if (limpar_dados){
+            txtResultado.setText("");
+            txtExpresao.append(string);
+        }
+        else {
+            txtExpresao.append(txtResultado.getText());
+            txtExpresao.append(string);
+            txtResultado.setText("");
+        }
+    }
 }

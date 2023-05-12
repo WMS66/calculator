@@ -3,6 +3,7 @@
 ## The language used for development was JAVA
 
 <hr>
+
 :lipstick: feat: implement interface
 
 :wrench: chore: Create Method Add an expression
@@ -24,3 +25,5 @@
 :ok_hand: style: create styles
 
 :tada: init: create project Calculator
+
+<hr>

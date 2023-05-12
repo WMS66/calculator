@@ -48,8 +48,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View view ){
 
-                txtExpresao.setText("");
-                txtResultado.setText("");
+                txtExpresao.setText(" ");
+                txtResultado.setText(" ");
             }
         });
 

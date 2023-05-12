@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         backspace.setOnClickListener(new View.OnClickListener(){
             @Override
-                    public void onClick(View view){
+                    public void onClick(View v){
 
                 TextView expressao = findViewById(id.txt_expressao);
                 String string = expressao.getText().toString();
@@ -67,6 +67,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 txtResultado.setText("");
             }
         });
+
+
 
     }
 
@@ -112,66 +114,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
-            case  R.id.numero_zero:
-                AcrescentarUmaExpressao("0",true);
-                break;
-
-            case R.id.numero_um:
-                AcrescentarUmaExpressao("1", true);
-                break;
-
-            case R.id.numero_dois:
-                AcrescentarUmaExpressao("2", true);
-                break;
-
-            case R.id.numero_tres:
-                AcrescentarUmaExpressao("3", true);
-                break;
-
-            case R.id.numero_quatro:
-                AcrescentarUmaExpressao("4", true);
-                break;
-
-            case R.id.numero_cinco:
-                AcrescentarUmaExpressao("5", true);
-                break;
-
-            case R.id.numero_seis:
-                AcrescentarUmaExpressao("6", true);
-                break;
-
-            case R.id.numero_sete:
-                AcrescentarUmaExpressao("7", true);
-                break;
-
-            case R.id.numero_oito:
-                AcrescentarUmaExpressao("8", true);
-                break;
-
-            case R.id.numero_nove:
-                AcrescentarUmaExpressao("9", true);
-                break;
-
-            case id.ponto:
-                AcrescentarUmaExpressao(".", true);
-                break;
-
-            case id.bt_soma:
-                AcrescentarUmaExpressao("+", false);
-                break;
-
-            case id.bt_subtracao:
-                AcrescentarUmaExpressao("-", false);
-                break;
-
-            case id.bt_multiplicacao:
-                AcrescentarUmaExpressao("*", false);
-                break;
-
-            case id.bt_divisao:
-                AcrescentarUmaExpressao("/", false);
-                break;
+        int id = view.getId();
+        if (id == R.id.numero_zero) {
+            AcrescentarUmaExpressao("0", true);
+        } else if (id == R.id.numero_um) {
+            AcrescentarUmaExpressao("1", true);
+        } else if (id == R.id.numero_dois) {
+            AcrescentarUmaExpressao("2", true);
+        } else if (id == R.id.numero_tres) {
+            AcrescentarUmaExpressao("3", true);
+        } else if (id == R.id.numero_quatro) {
+            AcrescentarUmaExpressao("4", true);
+        } else if (id == R.id.numero_cinco) {
+            AcrescentarUmaExpressao("5", true);
+        } else if (id == R.id.numero_seis) {
+            AcrescentarUmaExpressao("6", true);
+        } else if (id == R.id.numero_sete) {
+            AcrescentarUmaExpressao("7", true);
+        } else if (id == R.id.numero_oito) {
+            AcrescentarUmaExpressao("8", true);
+        } else if (id == R.id.numero_nove) {
+            AcrescentarUmaExpressao("9", true);
+        } else if (id == R.id.ponto) {
+            AcrescentarUmaExpressao(".", true);
+        } else if (id == R.id.bt_soma) {
+            AcrescentarUmaExpressao("+", false);
+        } else if (id == R.id.bt_subtracao) {
+            AcrescentarUmaExpressao("-", false);
+        } else if (id == R.id.bt_multiplicacao) {
+            AcrescentarUmaExpressao("*", false);
+        } else if (id == R.id.bt_divisao) {
+            AcrescentarUmaExpressao("/", false);
         }
     }
 }

@@ -149,6 +149,9 @@
             android:id="@+id/numero_zero"
             style="@style/Numbers_Button"
             android:text="0"
+            android:onClick="onClick"
+
+
             />
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/backspace"

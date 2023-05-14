@@ -3,8 +3,8 @@
 ## The language used for development was JAVA
 
 <hr>
-# <center> Project under development</center>
-<hr>
+
+:rocket: feat: Completed the calculator project in JAVA
 
 :lipstick: feat: implement interface
 

@@ -44,82 +44,80 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         multiplicacao.setOnClickListener(this);
         divisao.setOnClickListener(this);
 
-        botao_limpar.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view ){
+    botao_limpar.setOnClickListener(new View.OnClickListener(){
+        @Override
+        public void onClick(View view ){
 
-                txtExpresao.setText(" ");
-                txtResultado.setText(" ");
+            txtExpresao.setText(" ");
+            txtResultado.setText(" ");
+        }
+    });
+
+    backspace.setOnClickListener(new View.OnClickListener(){
+        @Override
+                public void onClick(View v){
+
+            TextView expressao = findViewById(id.txt_expressao);
+            String string = expressao.getText().toString();
+
+            if (!string.isEmpty()){
+                byte var0 = 0;
+                int var1 = string.length()-1;
+                String txtExpressao = string.substring(var0,var1);
+                expressao.setText(txtExpressao);
             }
-        });
+            txtResultado.setText("");
+        }
+    });
 
-        backspace.setOnClickListener(new View.OnClickListener(){
-            @Override
-                    public void onClick(View v){
+    igual.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            try {
+                Expression expressao = new ExpressionBuilder(txtExpresao.getText().toString()).build();
+                double resultado = expressao.evaluate();
+                long longResult = (long) resultado;
 
-                TextView expressao = findViewById(id.txt_expressao);
-                String string = expressao.getText().toString();
-
-                if (!string.isEmpty()){
-
-                    byte var0 = 0;
-                    int var1 = string.length()-1;
-                    String txtExpressao = string.substring(var0,var1);
-                    expressao.setText(txtExpressao);
+                if (resultado == (double) longResult) {
+                    txtResultado.setText((CharSequence) String.valueOf(longResult));
+                } else {
+                    txtResultado.setText((CharSequence) String.valueOf(resultado));
                 }
-                txtResultado.setText("");
+            }catch (Exception e){
+
             }
-        });
-
-igual.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
-
-        try {
-            Expression expressao = new ExpressionBuilder(txtExpresao.getText().toString()).build();
-            double resultado = expressao.evaluate();
-            long longResult = (long) resultado;
-
-            if (resultado == (double) longResult) {
-                txtResultado.setText((CharSequence) String.valueOf(longResult));
-            } else {
-                txtResultado.setText((CharSequence) String.valueOf(resultado));
-            }
-        }catch (Exception e){
 
         }
+    });
 
     }
-});
 
-    }
-
-    private void IniciarComponentes(){     // Criar Método para chamar, recuperar os id's os componentes
-        numeroZero = findViewById(id.numero_zero);
-        numeroUm = findViewById(id.numero_um);
-        numeroDois = findViewById(id.numero_dois);
-        numeroTres = findViewById(id.numero_tres);
-        numeroQuatro = findViewById(id.numero_quatro);
-        numeroCinco = findViewById(id.numero_cinco);
-        numeroSeis = findViewById(id.numero_seis);
-        numeroSete = findViewById(id.numero_sete);
-        numeroOito = findViewById(id.numero_oito);
-        numeroNove = findViewById(id.numero_nove);
-        ponto = findViewById(id.ponto);
-        soma = findViewById(id.bt_soma);
-        subtracao = findViewById(id.bt_subtracao);
-        multiplicacao = findViewById(id.bt_multiplicacao);
-        divisao = findViewById(id.bt_divisao);
-        botao_limpar = findViewById(id.bt_limpar);
-        txtExpresao = findViewById(id.txt_expressao);
-        txtResultado = findViewById(id.txt_resultado);
-        backspace = findViewById(id.backspace);
+    private void IniciarComponentes(){     // Cria Método para chamar, recuperar os id's os componentes
+        numeroZero = findViewById(R.id.numero_zero);
+        numeroUm = findViewById(R.id.numero_um);
+        numeroDois = findViewById(R.id.numero_dois);
+        numeroTres = findViewById(R.id.numero_tres);
+        numeroQuatro = findViewById(R.id.numero_quatro);
+        numeroCinco = findViewById(R.id.numero_cinco);
+        numeroSeis = findViewById(R.id.numero_seis);
+        numeroSete = findViewById(R.id.numero_sete);
+        numeroOito = findViewById(R.id.numero_oito);
+        numeroNove = findViewById(R.id.numero_nove);
+        ponto = findViewById(R.id.ponto);
+        soma = findViewById(R.id.bt_soma);
+        subtracao = findViewById(R.id.bt_subtracao);
+        multiplicacao = findViewById(R.id.bt_multiplicacao);
+        divisao = findViewById(R.id.bt_divisao);
+        botao_limpar = findViewById(R.id.bt_limpar);
+        txtExpresao = findViewById(R.id.txt_expressao);
+        txtResultado = findViewById(R.id.txt_resultado);
+        backspace = findViewById(R.id.backspace);
     }
 
     // Cria Método Acrescentar uma Expressão
     public void AcrescentarUmaExpressao(String string, boolean limpar_dados){
 
-        if (txtResultado.getText().equals("")){
+        if (txtResultado.getText().equals("  ")){
             txtExpresao.setText(" ");
         }
 
